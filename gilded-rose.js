@@ -1,4 +1,4 @@
-class Item {
+export class Item {
   constructor(name, sellIn = 0, quality = 0) {
     this.name = name;
     this.sellIn = sellIn;
@@ -9,7 +9,7 @@ class Item {
 
 }
 
-class BasicItem extends Item {
+export class BasicItem extends Item {
 
   constructor(name, sellIn, quality){
     super(name, sellIn, quality)
@@ -34,7 +34,7 @@ class BasicItem extends Item {
   }
 }
 
-class AgedCheese extends Item {
+export class AgedCheese extends Item {
   constructor(name, sellIn, quality){
     super(name, sellIn, quality);
   }
@@ -57,7 +57,7 @@ class AgedCheese extends Item {
 
 }
 
-class Theater extends Item {
+export class Theater extends Item {
 
   constructor(name, sellIn, quality){
     super(name, sellIn, quality)
@@ -89,7 +89,7 @@ class Theater extends Item {
 
 }
 
-class Conjure extends Item {
+export class Conjure extends Item {
 
   constructor(name, sellIn, quality){
     super(name, sellIn, quality);
@@ -111,13 +111,13 @@ class Conjure extends Item {
 
 }
 
-class Legendary extends Item{
+export class Legendary extends Item{
   constructor(name, sellIn, quality){
     super(name, sellIn, quality);
   }
 }
 
-let items = [];
+export let items = [];
 
 items.push(new Item("+5 Dexterity Vest", 10, 20));
 items.push(new Item("Aged Brie", 2, 0));
@@ -126,7 +126,7 @@ items.push(new Item("Sulfuras, Hand of Ragnaros", 0, 80));
 items.push(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
 items.push(new Item("Conjured Mana Cake", 3, 6));
 
-const updateQuality = () => {
+export const updateQuality = () => {
   for (let item of items) {
       item.updateQuality();
   }
@@ -209,8 +209,6 @@ const updateQuality = () => {
 };
 
 console.log(items);
-
-export { Item, AgedCheese, BasicItem, Theater, Conjure, Legendary, items, updateQuality }
 
 // if (
 //   item.name != "Aged Brie" &&
