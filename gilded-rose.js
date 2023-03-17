@@ -54,7 +54,7 @@ export class Theater extends Item {
 
     super.updateQuality();
 
-    if(this.sellIn > 0){
+    if(this.sellIn === 0){
       this.quality = 0;
     }else if (this.sellIn <= 5) { 
       this.quality = this.quality + 3;
@@ -189,20 +189,15 @@ export function itemFactory (name, sellIn, quailty){
     case 'Aged Brie':
     case 'Aged Gouda':
       return new AgedCheese (name, sellIn, quailty);
-      break;
     case '+5 Dexterity Vest':
     case 'Elixir of the Mongoose':
       return new BasicItem (name, sellIn, quailty);
-      break;
     case 'Sulfuras, Hand of Ragnaros':
       return new Legendary (name, sellIn, quailty);
-      break;
     case 'Backstage passes to a TAFKAL80ETC concert':
       return new Theater (name, sellIn, quailty);
-      break;
     case 'Conjured Mana Cake':
       return new Conjure (name, sellIn, quailty);
-      break;
   }
 }
 
