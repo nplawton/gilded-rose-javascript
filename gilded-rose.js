@@ -54,7 +54,7 @@ export class Theater extends Item {
 
     super.updateQuality();
 
-    if(this.sellIn === 0){
+    if(this.sellIn > 0){
       this.quality = 0;
     }else if (this.sellIn <= 5) { 
       this.quality = this.quality + 3;
