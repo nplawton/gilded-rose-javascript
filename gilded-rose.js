@@ -5,18 +5,20 @@ export class Item {
     this.quality = quality;
   }
 
-  updateQuality(){}
-
-}
-
-export class BasicItem extends Item {
-
   updateQuality(){
     if(this.sellIn > 0){
       this.sellIn --;
     }else {
       this.sellIn = 0;
     }
+  }
+
+}
+
+export class BasicItem extends Item {
+
+  updateQuality(){
+    super.updateQuality();
 
     if(this.quality < 50 && this.sellIn > 0){
       this.quality --;
@@ -33,17 +35,13 @@ export class BasicItem extends Item {
 export class AgedCheese extends Item {
 
   updateQuality(){
+    
+    super.updateQuality();
 
     if(this.quality < 50){
       this.quality ++;
     }else{
       this.quality = 50;
-    }
-
-    if(this.sellIn > 0){
-      this.sellIn --;
-    }else {
-      this.sellIn = 0;
     }
 
   }
@@ -54,11 +52,7 @@ export class Theater extends Item {
 
   updateQuality() {
 
-    if(this.sellIn > 0){
-      this.sellIn --;
-    }else {
-      this.sellIn = 0;
-    }
+    super.updateQuality();
 
     if(this.sellIn === 0){
       this.quality = 0;
@@ -81,16 +75,13 @@ export class Theater extends Item {
 export class Conjure extends Item {
 
   updateQuality(){
+
+    super.updateQuality();
+
     if(this.quality < 50){
       this.quality = this.quality - 2;
     }else{
       this.quality = 50;
-    }
-
-    if(this.sellIn > 0){
-      this.sellIn --;
-    }else {
-      this.sellIn = 0;
     }
   }
 
