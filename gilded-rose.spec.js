@@ -1,5 +1,5 @@
 import { expect, describe, it } from "vitest";
-import { Item, AgedCheese, BasicItem, Theater, Conjure, Legendary, items, updateQuality } from "./gilded-rose.js";
+import { Item, AgedCheese, BasicItem, Theater, Conjure, Legendary, items, updateQuality, itemFactory } from "./gilded-rose.js";
 
 describe("updateQuality", () => {
   it("reduces quality and sellIn of basic items by 1", () => {

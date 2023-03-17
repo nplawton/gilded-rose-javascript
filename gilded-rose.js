@@ -11,10 +11,6 @@ export class Item {
 
 export class BasicItem extends Item {
 
-  constructor(name, sellIn, quality){
-    super(name, sellIn, quality)
-  }
-
   updateQuality(){
     if(this.sellIn > 0){
       this.sellIn --;
@@ -35,9 +31,6 @@ export class BasicItem extends Item {
 }
 
 export class AgedCheese extends Item {
-  constructor(name, sellIn, quality){
-    super(name, sellIn, quality);
-  }
 
   updateQuality(){
 
@@ -58,10 +51,6 @@ export class AgedCheese extends Item {
 }
 
 export class Theater extends Item {
-
-  constructor(name, sellIn, quality){
-    super(name, sellIn, quality)
-  }
 
   updateQuality() {
 
@@ -91,10 +80,6 @@ export class Theater extends Item {
 
 export class Conjure extends Item {
 
-  constructor(name, sellIn, quality){
-    super(name, sellIn, quality);
-  }
-
   updateQuality(){
     if(this.quality < 50){
       this.quality = this.quality - 2;
@@ -112,9 +97,7 @@ export class Conjure extends Item {
 }
 
 export class Legendary extends Item{
-  constructor(name, sellIn, quality){
-    super(name, sellIn, quality);
-  }
+
 }
 
 export let items = [];
@@ -209,6 +192,28 @@ export const updateQuality = () => {
 };
 
 console.log(items);
+
+export function itemFactory (name, sellIn, quailty){
+  switch(name){
+    case 'Aged Brie':
+    case 'Aged Gouda':
+      return new AgedCheese (name, sellIn, quailty);
+      break;
+    case '+5 Dexterity Vest':
+    case 'Elixir of the Mongoose':
+      return new BasicItem (name, sellIn, quailty);
+      break;
+    case 'Sulfuras, Hand of Ragnaros':
+      return new Legendary (name, sellIn, quailty);
+      break;
+    case 'Backstage passes to a TAFKAL80ETC concert':
+      return new Theater (name, sellIn, quailty);
+      break;
+    case 'Conjured Mana Cake':
+      return new Conjure (name, sellIn, quailty);
+      break;
+  }
+}
 
 // if (
 //   item.name != "Aged Brie" &&
